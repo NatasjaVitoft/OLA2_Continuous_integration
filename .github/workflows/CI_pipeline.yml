@@ -1,33 +1,32 @@
-name: Commit Stage CI
+name: Java Maven Build and Docker CI
 
+# Just to define when the Github workflow should start 
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
 
+# Define the jobs to be run
 jobs:
-  build:
+
+  build_test:
+
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout code
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      # 2. Set up JDK 17
-      - name: Set up JDK 17
+      - uses: actions/checkout@v3
+      - name: Setup JDK 17 # First step is to setup JDK 17
         uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
-
-      # 3. Build, test, quality gates
-      - name: Build, test, quality gates
-        run: mvn -B verify
+          cache: 'maven' # Cache Maven dependencies
+      - name: Build, test, Quality gates 
+        run: mvn -B -ntp verify
         working-directory: contionus_integration
 
-      # 4. Generate SBOM
+      # 4. Generate SBOM with CycloneDX Maven plugin
       - name: Generate SBOM
         run: mvn org.cyclonedx:cyclonedx-maven-plugin:makeAggregateBom
         working-directory: contionus_integration
