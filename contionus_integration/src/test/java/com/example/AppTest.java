@@ -34,8 +34,6 @@ public class AppTest {
         assertTrue(app.divide(6, 3) == 2.0);
     } 
 
-
-    /* 
     
     // Test for division by zero. This test should fail
     @Test
@@ -47,5 +45,5 @@ public class AppTest {
         } catch (ArithmeticException e) {
             assertTrue(true); 
         }
-    } */
+    } 
 }
