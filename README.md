@@ -21,9 +21,13 @@ I tested some scenarios for example when a Unittest fails and ensured that the d
 
 ![Alt text](images/test_fails.png)
 
-### PR test:
+### PR test (without docker push):
 
 ![Alt text](images/without_docker_push.png)
+
+### Coverage report example 
+
+![Alt text](images/coverage_report.png)
 
 ## Sources: 
 
