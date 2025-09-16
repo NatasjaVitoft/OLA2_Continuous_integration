@@ -45,11 +45,11 @@ jobs:
           name: coverage-report
           path: contionus_integration/target/site/jacoco/index.html
 
-      # 7. Docker build (lowercase repo name!)
+      # 7. Docker build
       - name: Build Docker image
         run: docker build -t ghcr.io/natasjavitoft/continuous_integration_app:latest .
 
-      # 8. Docker push (only on main)
+      # 8. Docker push
       - name: Login to GHCR
         if: github.ref == 'refs/heads/main'
         uses: docker/login-action@v2
