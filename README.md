@@ -3,9 +3,6 @@
 The business logic for this test pipeline is not that interesting and is just some calucation methods for simplicity. 
 I have made some unittests for each calucation method to test with the pipeline. 
 
-What the pipeline does is that it first:
-* Setups 
-
 
 ## Sources: 
 
