@@ -13,13 +13,16 @@ What i do with the pipeline is that i first:
 
 I tested some scenarios for example when a Unittest fails and ensured that the docker images wouldnt be pushed on PR's. 
 
-Repo package: 
+ ### Repo package: 
+
 ![Alt text](images/package.png)
 
-Unit test fail:
+### Unit test fail:
+
 ![Alt text](images/test_fails.png)
 
-PR test:
+### PR test:
+
 ![Alt text](images/without_docker_push.png)
 
 ## Sources: 
