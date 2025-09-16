@@ -48,7 +48,8 @@ jobs:
 
       # 7. Docker build
       - name: Build Docker image
-        run: docker build -t ghcr.io/${{ github.repository_owner }}/continuous_integration_app:latest .
+        run: docker build -t ghcr.io/${{ github.repository_owner | lower }}/continuous_integration_app:latest .
+
 
       # 8. Docker push (only on main)
       - name: Login to GHCR
