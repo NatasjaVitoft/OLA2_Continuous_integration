@@ -61,22 +61,20 @@
                 </executions>
             </plugin>
 
-            <!-- SpotBugs -->
-<plugin>
-  <groupId>com.github.spotbugs</groupId>
-  <artifactId>spotbugs-maven-plugin</artifactId>
-  <version>4.9.4.2</version>
-  <dependencies>
-    <!-- overwrite dependency on spotbugs if you want to specify the version of spotbugs -->
-    <dependency>
-      <groupId>com.github.spotbugs</groupId>
-      <artifactId>spotbugs</artifactId>
-      <version>4.9.5</version>
-    </dependency>
-  </dependencies>
-</plugin>
+            <plugin>
+            <groupId>com.github.spotbugs</groupId>
+            <artifactId>spotbugs-maven-plugin</artifactId>
+            <version>4.9.4.2</version>
+            <dependencies>
+                <!-- overwrite dependency on spotbugs if you want to specify the version of spotbugs -->
+                <dependency>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs</artifactId>
+                <version>4.9.5</version>
+                </dependency>
+            </dependencies>
+            </plugin>
 
-            <!-- JaCoCo -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -97,7 +95,6 @@
                 </executions>
             </plugin>
 
-            <!-- CycloneDX SBOM -->
             <plugin>
                 <groupId>org.cyclonedx</groupId>
                 <artifactId>cyclonedx-maven-plugin</artifactId>
@@ -110,6 +107,10 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <outputDirectory>${project.build.directory}</outputDirectory>
+                    <outputFormat>JSON</outputFormat> 
+                </configuration>
             </plugin>
 
             <!-- Jar plugin -->

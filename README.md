@@ -6,7 +6,6 @@ I have made some unittests for each calucation method to test with the pipeline.
 What the pipeline does is that it first:
 * Setups 
 
-
 ## Sources: 
 
 * https://medium.com/devopsturkiye/pushing-docker-images-to-githubs-registry-manual-and-automated-methods-19cce3544eb1
