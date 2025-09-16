@@ -25,24 +25,26 @@ jobs:
       # 3. Build, test, quality gates
       - name: Build, test, quality gates
         run: mvn -B verify
+        working-directory: contionus_integration
 
       # 4. Generate SBOM
       - name: Generate SBOM
         run: mvn org.cyclonedx:cyclonedx-maven-plugin:makeAggregateBom
+        working-directory: contionus_integration
 
       # 5. Upload artifact (JAR)
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: app-jar
-          path: target/*.jar
+          path: contionus_integration/target/*.jar
 
       # 6. Upload coverage report
       - name: Upload coverage report
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
-          path: target/site/jacoco/index.html
+          path: contionus_integration/target/site/jacoco/index.html
 
       # 7. Docker build
       - name: Build Docker image
@@ -60,3 +62,4 @@ jobs:
       - name: Push Docker image
         if: github.ref == 'refs/heads/main'
         run: docker push ghcr.io/${{ github.repository_owner }}/continuous_integration_app:latest
+
