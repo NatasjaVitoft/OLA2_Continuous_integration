@@ -21,4 +21,9 @@ public class App {
     public double divide(int a, int b) {
         return (double) a / b; // Dividing by zero should fail with this implementation
     }
+
+    // Calculate procent of a number 
+    public double procent(int total_number, int procent) {
+        return (double) (total_number * procent) / 100;
+    }
 }
